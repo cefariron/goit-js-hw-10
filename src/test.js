@@ -211,58 +211,58 @@
 // }
 
 
-const selectors = {
-    button: document.querySelector("[data-start]"),
-    days: document.querySelector("[data-days]"),
-    hours: document.querySelector("[data-hours]"),
-    minutes: document.querySelector("[data-minutes]"),
-    seconds: document.querySelector("[data-seconds]"),
-}
+// const selectors = {
+//     button: document.querySelector("[data-start]"),
+//     days: document.querySelector("[data-days]"),
+//     hours: document.querySelector("[data-hours]"),
+//     minutes: document.querySelector("[data-minutes]"),
+//     seconds: document.querySelector("[data-seconds]"),
+// }
 
+ 
+// const options = {
+//     enableTime: true,
+//     time_24hr: true,
+//     defaultDate: new Date(),
+//     minuteIncrement: 1,
+//     onClose(selectedDates) {
+//         const currentDate = new Date();
 
-const options = {
-    enableTime: true,
-    time_24hr: true,
-    defaultDate: new Date(),
-    minuteIncrement: 1,
-    onClose(selectedDates) {
-        const currentDate = new Date();
+//         if(selectedDates[0] - currentDate <= 0) {
+//             console.log("false");
+//             selectors.button.disabled = true;
+//             return;
+//         } else {
+//             selectors.button.disabled = false;
+//         }
 
-        if(selectedDates[0] - currentDate <= 0) {
-            console.log("false");
-            selectors.button.disabled = true;
-            return;
-        } else {
-            selectors.button.disabled = false;
-        }
+//         selectors.button.addEventListener("click", () => {
+//             selectors.button.disabled = true;
+//             const id = setInterval(() => {
+//                 timer(selectedDates[0], id)
+//             }, 1000)
+//         })
+//     }
+//   };
 
-        selectors.button.addEventListener("click", () => {
-            selectors.button.disabled = true;
-            const id = setInterval(() => {
-                timer(selectedDates[0], id)
-            }, 1000)
-        })
-    }
-  };
+// flatpickr("#datetime-picker", options);
 
-flatpickr("#datetime-picker", options);
+// function timer(selectDate, id) {
+//     const currentDate = new Date();
+//     const deltaTime = selectDate - currentDate;
 
-function timer(selectDate, id) {
-    const currentDate = new Date();
-    const deltaTime = selectDate - currentDate;
+//     if(deltaTime <= 0) {
+//         clearInterval(id)
+//         return;
+//     }
 
-    if(deltaTime <= 0) {
-        clearInterval(id)
-        return;
-    }
+//     const days = deltaTime > 0 ? Math.floor(deltaTime / 1000 / 60 / 60 / 24) : 0;
+//     const hours = deltaTime > 0 ? Math.floor(deltaTime / 1000 / 60 / 60 ) % 24 : 0;
+//     const minutes = deltaTime > 0 ? Math.floor(deltaTime / 1000 / 60 ) % 60 : 0;
+//     const seconds = deltaTime > 0 ? Math.floor(deltaTime / 1000 ) % 60 : 0;
 
-    const days = deltaTime > 0 ? Math.floor(deltaTime / 1000 / 60 / 60 / 24) : 0;
-    const hours = deltaTime > 0 ? Math.floor(deltaTime / 1000 / 60 / 60 ) % 24 : 0;
-    const minutes = deltaTime > 0 ? Math.floor(deltaTime / 1000 / 60 ) % 60 : 0;
-    const seconds = deltaTime > 0 ? Math.floor(deltaTime / 1000 ) % 60 : 0;
-
-    selectors.seconds.textContent = seconds < 10 ? `0${seconds}` : seconds;
-    selectors.minutes.textContent = minutes < 10 ? `0${minutes}` : minutes
-    selectors.hours.textContent = hours < 10 ? `0${hours}` : hours
-    selectors.days.textContent = days < 10 ? `0${days}` : days
-}
+//     selectors.seconds.textContent = seconds < 10 ? `0${seconds}` : seconds;
+//     selectors.minutes.textContent = minutes < 10 ? `0${minutes}` : minutes
+//     selectors.hours.textContent = hours < 10 ? `0${hours}` : hours
+//     selectors.days.textContent = days < 10 ? `0${days}` : days
+// }
