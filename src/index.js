@@ -1,4 +1,4 @@
-import { fetchBreeds } from './cat-api';
+import { fetchBreeds, fetchCatByBreed } from './cat-api';
 import { TheCatAPI } from '@thatapicompany/thecatapi';
 import axios from 'axios';
 
@@ -18,7 +18,7 @@ catInfoEl.style.gap = '30px';
 
 loadingEl.style.display = 'block';
 
-fetchBreeds(selectEl, loadingEl);
+fetchBreeds(selectEl, loadingEl, errorEl);
 
 selectEl.addEventListener('change', handleSelectChange);
 
@@ -28,7 +28,9 @@ async function handleSelectChange() {
   catInfoEl.style.display = 'none';
   loadingEl.style.display = 'block';
 
-  await fetchCatByBreed(selectedBreedId);
+  const catData = await fetchCatByBreed(selectedBreedId, loadingEl, selectEl, errorEl);
+
+  createMarkup(catData);
 
   loadingEl.style.display = 'none';
   catInfoEl.style.display = 'flex';
@@ -46,29 +48,3 @@ function createMarkup({ name, description, temperament, imageUrl }) {
   `;
   catInfoEl.innerHTML = markup;
 }
-
-async function fetchCatByBreed(selectedBreedId) {
-  try {
-    const response = await axios.get(
-      `https://api.thecatapi.com/v1/images/search?breed_ids=${selectedBreedId}`
-    );
-    response.data.forEach(item => {
-      const breedData = item.breeds[0];
-      const dataCatObj = {
-        name: breedData.name,
-        description: breedData.description,
-        temperament: breedData.temperament,
-        imageUrl: item.url,
-      };
-      createMarkup(dataCatObj);
-    });
-  } catch (error) {
-    loadingEl.style.display = 'none';
-    selectEl.style.display = 'none';
-    errorEl.style.display = 'block';
-
-    throw new Error(error);
-  }
-}
-
-
