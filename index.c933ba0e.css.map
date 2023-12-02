@@ -1,0 +1,1 @@
+{"mappings":"ACCA,oBAIA","sources":["index.c933ba0e.css","src/style.css"],"sourcesContent":[".error {\n  display: none;\n}\n\n.breed-select {\n  margin-bottom: 20px;\n}\n\n/*# sourceMappingURL=index.c933ba0e.css.map */\n","\n.error {\n    display: none;\n}\n\n.breed-select {\n    margin-bottom: 20px;\n}"],"names":[],"version":3,"file":"index.c933ba0e.css.map"}
