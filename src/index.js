@@ -4,9 +4,9 @@ import { TheCatAPI } from '@thatapicompany/thecatapi';
 import axios from 'axios';
 import SlimSelect from 'slim-select'
 
-// new SlimSelect({               //  Библиотека SlimSelect. Подключена, но если
-  // select: '#selectElement'     //  инициализировать ее, все ломается. Как 
-// })                             //  исправить незнаю. Сдаю без нее.
+new SlimSelect({               //  Библиотека SlimSelect. Подключена, но если
+  select: '#selectElement'     //  инициализировать ее, все ломается. Как 
+})                             //  исправить незнаю. Сдаю без нее.
 
 new TheCatAPI(
   'live_s8nipvOVu9x7M1Oib237fV73mUqJ5mMbosZrl0Spq6nATwMKfjepogDKSlr2wzo8'
