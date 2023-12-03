@@ -40,7 +40,7 @@ async function handleSelectChange() {
 
 function createMarkup({ name, description, temperament, imageUrl }) {
   const markup = `
-    <img class="cat-img" style="object-fit: cover" src="${imageUrl}" alt="${name}" width="500" height="400">
+    <img class="cat-img" style="object-fit: cover; border-radius: 16px" src="${imageUrl}" alt="${name}" width="500" height="400">
     <div class="descr-box" style="width: 600px">
       <h2>${name}</h2>
       <p>${description}</p>
@@ -49,4 +49,5 @@ function createMarkup({ name, description, temperament, imageUrl }) {
     </div>
   `;
   catInfoEl.innerHTML = markup;
+  catInfoEl.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.2)';
 }

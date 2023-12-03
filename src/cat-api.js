@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Notiflix from 'notiflix';
 
 export async function fetchBreeds(selectEl, loadingEl, errorEl) {
   try {
@@ -15,7 +16,9 @@ export async function fetchBreeds(selectEl, loadingEl, errorEl) {
   } catch (error) {
     loadingEl.style.display = 'none';
     selectEl.style.display = 'none';
-    errorEl.style.display = 'block';
+    // errorEl.style.display = 'block'; // Раскоментировать для вывода текстового контента об ошибке на страницу.
+
+    Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');
 
     throw new Error(error);
   }
@@ -39,7 +42,9 @@ export async function fetchCatByBreed(selectedBreedId, loadingEl, selectEl, erro
   } catch (error) {
     loadingEl.style.display = 'none';
     selectEl.style.display = 'none';
-    errorEl.style.display = 'block';
+    // errorEl.style.display = 'block'; // Раскоментировать для вывода текстового контента об ошибке на страницу.
+
+    Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');
 
     throw new Error(error);
   }
