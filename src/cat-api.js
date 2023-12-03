@@ -1,5 +1,7 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
+import SlimSelect from 'slim-select'
+import '/node_modules/slim-select/dist/slimselect.css';
 
 export async function fetchBreeds(selectEl, loadingEl, errorEl) {
   try {
@@ -13,6 +15,10 @@ export async function fetchBreeds(selectEl, loadingEl, errorEl) {
       optionEl.textContent = elem.name;
       selectEl.append(optionEl);
     });
+    new SlimSelect({
+      select: '#selectElement'
+    })
+    
   } catch (error) {
     loadingEl.style.display = 'none';
     selectEl.style.display = 'none';
