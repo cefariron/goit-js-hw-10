@@ -1,8 +1,13 @@
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
 import { TheCatAPI } from '@thatapicompany/thecatapi';
 import axios from 'axios';
+import SlimSelect from 'slim-select'
 
-const theCatAPI = new TheCatAPI(
+new SlimSelect({
+  select: '#selectElement'
+})
+
+new TheCatAPI(
   'live_s8nipvOVu9x7M1Oib237fV73mUqJ5mMbosZrl0Spq6nATwMKfjepogDKSlr2wzo8'
 );
 axios.defaults.headers.common['x-api-key'] =
@@ -12,9 +17,6 @@ const selectEl = document.querySelector('.breed-select');
 const loadingEl = document.querySelector('.loader');
 const errorEl = document.querySelector('.error');
 const catInfoEl = document.querySelector('.cat-info');
-
-catInfoEl.style.display = 'flex';
-catInfoEl.style.gap = '30px';
 
 loadingEl.style.display = 'block';
 
