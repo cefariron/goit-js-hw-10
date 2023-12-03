@@ -3,7 +3,7 @@ import Notiflix from 'notiflix';
 import SlimSelect from 'slim-select'
 import '/node_modules/slim-select/dist/slimselect.css';
 
-export async function fetchBreeds(selectEl, loadingEl, errorEl) {
+export async function fetchBreeds(selectEl, loadingEl, errorEl, titleEl) {
   try {
     const response = await axios.get('https://api.thecatapi.com/v1/breeds');
 
@@ -22,6 +22,7 @@ export async function fetchBreeds(selectEl, loadingEl, errorEl) {
   } catch (error) {
     loadingEl.style.display = 'none';
     selectEl.style.display = 'none';
+    titleEl.style.display = 'none';
     // errorEl.style.display = 'block'; // Раскоментировать для вывода текстового контента об ошибке на страницу.
 
     Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');
@@ -30,10 +31,10 @@ export async function fetchBreeds(selectEl, loadingEl, errorEl) {
   }
 }
 
-export async function fetchCatByBreed(selectedBreedId, loadingEl, selectEl, errorEl) {
+export async function fetchCatByBreed(selectedBreedId, loadingEl, selectEl, errorEl, titleEl) {
   try {
     const response = await axios.get(
-      `https://api.thecatapi.com/v1/images/search?breed_ids=${selectedBreedId}`
+      `https://api.thecatapi.com/v1/images/saaaearch?breed_ids=${selectedBreedId}`
     );
 
     const item = response.data[0];
@@ -45,9 +46,11 @@ export async function fetchCatByBreed(selectedBreedId, loadingEl, selectEl, erro
       temperament: breedData.temperament,
       imageUrl: item.url,
     };
+    
   } catch (error) {
     loadingEl.style.display = 'none';
     selectEl.style.display = 'none';
+    titleEl.style.display = 'none';
     // errorEl.style.display = 'block'; // Раскоментировать для вывода текстового контента об ошибке на страницу.
 
     Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');

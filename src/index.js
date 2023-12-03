@@ -12,10 +12,11 @@ const selectEl = document.querySelector('.breed-select');
 const loadingEl = document.querySelector('.loader');
 const errorEl = document.querySelector('.error');
 const catInfoEl = document.querySelector('.cat-info');
+const titleEl = document.querySelector(".funny-title");
 
 loadingEl.style.display = 'block';
 
-fetchBreeds(selectEl, loadingEl, errorEl);
+fetchBreeds(selectEl, loadingEl, errorEl, titleEl);
 
 selectEl.addEventListener('change', handleSelectChange);
 
@@ -25,7 +26,7 @@ async function handleSelectChange() {
   catInfoEl.style.display = 'none';
   loadingEl.style.display = 'block';
 
-  const catData = await fetchCatByBreed(selectedBreedId, loadingEl, selectEl, errorEl);
+  const catData = await fetchCatByBreed(selectedBreedId, loadingEl, selectEl, errorEl, titleEl);
 
   createMarkup(catData);
 
