@@ -1,10 +1,11 @@
+import '/node_modules/slim-select/dist/slimselect.css';
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
 import { TheCatAPI } from '@thatapicompany/thecatapi';
 import axios from 'axios';
 import SlimSelect from 'slim-select'
 
 // new SlimSelect({               //  Библиотека SlimSelect. Подключена, но если
-//   select: '#selectElement'     //  инициализировать ее, все ломается. Как 
+  // select: '#selectElement'     //  инициализировать ее, все ломается. Как 
 // })                             //  исправить незнаю. Сдаю без нее.
 
 new TheCatAPI(
