@@ -34,7 +34,7 @@ export async function fetchBreeds(selectEl, loadingEl, errorEl, titleEl) {
 export async function fetchCatByBreed(selectedBreedId, loadingEl, selectEl, errorEl, titleEl) {
   try {
     const response = await axios.get(
-      `https://api.thecatapi.com/v1/images/saaaearch?breed_ids=${selectedBreedId}`
+      `https://api.thecatapi.com/v1/images/search?breed_ids=${selectedBreedId}`
     );
 
     const item = response.data[0];
